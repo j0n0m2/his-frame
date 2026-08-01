@@ -6,19 +6,18 @@
   padding: 0;
 }
 
-html,
+html {
+  font-size: 62.5%;
+}
+
 body {
+  font-size: 1.6rem;
   width: 100%;
   height: 100%;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body {
   line-height: 1.5;
-  color: #222;
-  background-color: #fafafa;
 }
 
 img,
@@ -54,4 +53,12 @@ a {
 ol,
 ul {
   list-style: none;
+}
+
+#root {
+  overflow: visible;
+  /* 상단/하단 safe-area 영역 계산 */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  min-height: 100vh;
 }

@@ -1,0 +1,64 @@
+.navbar-blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* 블러가 적용될 높이 구간 */
+  pointer-events: none; /* 클릭 이벤트가 아래 스크롤 영역으로 전달되도록 설정 */
+  z-index: 90;
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  /* 마스크를 사용하여 블러 효과가 점점 사라지도록 설정 */
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.navbar {
+  font-family: $font-title;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 100;
+  min-height: 104px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(#f8f8f8 60%, rgba(250, 250, 248, 0));
+
+  ul {
+    margin: auto;
+    width: 100%;
+    max-width: 36.5rem;
+    justify-content: space-between;
+    display: flex;
+    list-style: none;
+    li {
+      font-size: 2.4rem;
+      color: #c1c1c1;
+      a {
+        padding: 1.2rem;
+        text-decoration: none;
+        font-weight: 400;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $color-text-sub;
+        }
+        &.active {
+          color: $color-text-main;
+        }
+      }
+    }
+  }
+}

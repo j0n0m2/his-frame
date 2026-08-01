@@ -1,0 +1,31 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh; /* 모바일 대응 100dvh */
+  overflow: hidden;
+  position: relative; /* 자식 absolute 기준점 */
+}
+
+.main-content {
+  flex: 1;
+  height: 100%; /* 전체 높이 차지 */
+  overflow-y: auto; /* 자체 스크롤 활성화 */
+  -webkit-overflow-scrolling: touch;
+
+  padding-top: calc(10.4rem + 2.4rem);
+  padding-bottom: 2.4rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+
+  @include tablet {
+    padding-top: calc(10.4rem + 2rem);
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include mobile {
+    padding-top: 10.4rem; /* Navbar 모바일 높이 + 모바일 여백 */
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+}
