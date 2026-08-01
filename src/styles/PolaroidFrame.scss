@@ -1,0 +1,57 @@
+.polaroid-frame {
+  width: 24.86rem;
+  height: 30.36rem;
+  background-color: #fff;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  @include mobile {
+    width: 22.6rem;
+    height: 27.6rem;
+  }
+}
+
+.polaroid-image-wrapper {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  display: block;
+  background-color: #000;
+}
+
+.polaroid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroid-caption {
+  font-family: $font-title;
+  display: block;
+  width: fit-content;
+  display: flex;
+  gap: 0.4rem;
+  font-size: 2.4rem;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+
+  img {
+    width: 2.2rem;
+    display: inline-block;
+    animation: slideIn 0.4s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(6px);
+  }
+}

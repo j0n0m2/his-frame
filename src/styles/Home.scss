@@ -1,0 +1,35 @@
+#intro {
+  display: grid;
+  margin: auto;
+  max-width: 42rem;
+  min-width: 33rem;
+  @include mobile {
+    grid-template-rows: repeat(3, 1fr);
+
+    > div:nth-child(1) {
+      rotate: 15deg;
+      margin-left: 1rem;
+    }
+    > div:nth-child(2) {
+      z-index: 1;
+      rotate: -6.44deg;
+      margin-top: -10rem;
+      justify-self: end;
+    }
+    > div:nth-child(3) {
+      rotate: -4.68deg;
+      margin-top: -20rem;
+    }
+  }
+}
+.polaroid-with-badge {
+  position: relative;
+  width: fit-content;
+  .badge {
+    position: absolute;
+    z-index: -1;
+    right: -6rem;
+    top: -5rem;
+    rotate: 32deg;
+  }
+}

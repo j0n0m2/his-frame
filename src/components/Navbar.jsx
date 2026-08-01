@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "./Navbar.scss";
+import "../styles/Navbar.scss";
 function Navbar() {
   return (
     <>
@@ -10,11 +10,15 @@ function Navbar() {
             {/* 현재 URL과 일치하면 자동으로 active 클래스와 aria-current="page"가 붙음 */}
             <NavLink to="/">Home</NavLink>
           </li>
-          <li aria-hidden="true">|</li>
+          <li role="none" aria-hidden="true">
+            |
+          </li>
           <li>
             <NavLink to="/photos">Photos</NavLink>
           </li>
-          <li aria-hidden="true">|</li>
+          <li role="none" aria-hidden="true">
+            |
+          </li>
           <li>
             <NavLink to="/about">About</NavLink>
           </li>
