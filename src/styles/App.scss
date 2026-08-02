@@ -1,14 +1,13 @@
-.app-container {
-  display: flex;
-  flex-direction: column;
-  height: 100dvh;
-  overflow: hidden;
-  position: relative;
-}
+// .app-container {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100dvh;
+//   overflow: hidden;
+//   position: relative;
+// }
 
 .main-content {
   overflow-x: hidden;
-  flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   padding-top: 13rem;
@@ -23,7 +22,7 @@
   }
 
   @include mobile {
-    padding-top: 12rem; /* Navbar 모바일 높이 + 모바일 여백 */
+    padding-top: 9rem;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
   }

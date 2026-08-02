@@ -1,9 +1,28 @@
 #intro {
   display: grid;
   margin: auto;
-  max-width: 42rem;
+  max-width: 62rem;
   min-width: 33rem;
+  grid-template-rows: repeat(3, 1fr);
+
+  > div:nth-child(1) {
+    rotate: 15deg;
+    margin-left: 1rem;
+  }
+  > div:nth-child(2) {
+    z-index: 1;
+    rotate: -8.44deg;
+    margin-top: -10rem;
+    justify-self: end;
+  }
+  > div:nth-child(3) {
+    rotate: -4.68deg;
+    margin-top: -20rem;
+  }
+
   @include mobile {
+    max-width: 42rem;
+    min-width: 34rem;
     grid-template-rows: repeat(3, 1fr);
 
     > div:nth-child(1) {
@@ -13,12 +32,13 @@
     > div:nth-child(2) {
       z-index: 1;
       rotate: -6.44deg;
-      margin-top: -10rem;
+      margin-top: -9rem;
       justify-self: end;
     }
     > div:nth-child(3) {
-      rotate: -4.68deg;
-      margin-top: -20rem;
+      rotate: 4.68deg;
+      margin-top: -12rem;
+      margin-left: 1rem;
     }
   }
 }

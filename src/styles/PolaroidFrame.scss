@@ -8,8 +8,8 @@
   gap: 0.4rem;
 
   @include mobile {
-    width: 22.6rem;
-    height: 27.6rem;
+    width: 20.6rem;
+    height: 25.6rem;
   }
 }
 
@@ -18,7 +18,7 @@
   flex: 1;
   min-height: 0;
   display: block;
-  background-color: #000;
+  background-color: #fedada;
 }
 
 .polaroid-image {
