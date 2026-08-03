@@ -18,7 +18,11 @@ function PolaroidFrame({ imageCategory, imageUrl }) {
         className="polaroid-caption"
       >
         <p aria-hidden="true">{imageCategory}</p>
-        <img src="/icons/Arrow-right.svg" alt="" aria-hidden="true" />
+        <img
+          src="/icons/Arrow-right.svg"
+          alt="오른쪽을 가리키는 화살표 모양 아이콘 "
+          aria-hidden="true"
+        />
       </a>
     </div>
   );

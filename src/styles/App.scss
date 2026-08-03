@@ -1,19 +1,11 @@
-// .app-container {
-//   display: flex;
-//   flex-direction: column;
-//   height: 100dvh;
-//   overflow: hidden;
-//   position: relative;
-// }
-
 .main-content {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   padding-top: 13rem;
   padding-bottom: 2.4rem;
-  padding-left: 2.4rem;
-  padding-right: 2.4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 
   @include tablet {
     padding-top: 13rem;

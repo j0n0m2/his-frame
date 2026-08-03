@@ -8,9 +8,13 @@
   font-style: normal;
   font-display: swap;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: $color-bg;
+  font-weight: 600;
+  color: $color-text-main;
 }
 
 h1,
@@ -20,6 +24,5 @@ h4,
 h5,
 h6 {
   font-family: $font-title;
-  color: $color-text-main;
   margin: 0;
 }

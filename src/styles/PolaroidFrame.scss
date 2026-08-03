@@ -6,6 +6,7 @@
   padding: 1rem;
   flex-direction: column;
   gap: 0.4rem;
+  box-shadow: 0rem 0.6rem 0.7rem -0.2rem rgba(0, 0, 0, 0.15);
 
   @include mobile {
     width: 20.6rem;
@@ -38,7 +39,7 @@
   align-items: center;
   flex-shrink: 0;
   text-decoration: none;
-  color: inherit;
+  color: $color-text-main;
 
   img {
     width: 2.2rem;
