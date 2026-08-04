@@ -21,3 +21,9 @@ $breakpoint-tablet: 1023px;
     @content;
   }
 }
+
+@mixin responsive-mobile-tablet {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}

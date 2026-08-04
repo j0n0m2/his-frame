@@ -2,50 +2,88 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
+  gap: 10rem;
+  @include responsive-mobile-tablet {
+    gap: 4rem;
+  }
   scroll-margin-top: -10rem;
 }
 
 #intro {
   width: 100%;
   display: grid;
-  max-width: 62rem;
-  grid-template-rows: repeat(3, 1fr);
+  max-width: 113.7rem;
+  grid-template-columns: repeat(6, 1fr);
 
   > div:nth-child(1) {
+    grid-column: span 3;
+    grid-row: span 1;
     rotate: 15deg;
     margin-left: 1rem;
+    justify-self: end;
+    z-index: 1;
   }
   > div:nth-child(2) {
-    z-index: 1;
+    grid-column: span 3;
+    grid-row: span 1;
+    margin-top: 10rem;
+    margin-left: 10rem;
     rotate: -8.44deg;
+    justify-self: start;
+  }
+  > div:nth-child(3) {
+    grid-column: span 2;
+    grid-row: 2;
+    rotate: 1.72deg;
+    margin-top: -15rem;
+    justify-self: center;
+  }
+  > div:nth-child(4) {
+    grid-column: span 2;
+    grid-row: 2;
+    rotate: -4.68deg;
+    justify-self: center;
+  }
+  > div:nth-child(5) {
+    grid-column: span 2;
+    grid-row: 2;
+    rotate: 9.94deg;
     margin-top: -10rem;
     justify-self: end;
   }
-  > div:nth-child(3) {
-    rotate: -4.68deg;
-    margin-top: -20rem;
-  }
-
   @include mobile {
     max-width: 42rem;
+  }
+  @include tablet {
+    max-width: 52rem;
+  }
+  @include responsive-mobile-tablet {
     min-width: 34rem;
     grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
 
     > div:nth-child(1) {
+      grid-column: span 1;
+      grid-row: span 1;
       rotate: 15deg;
       margin-left: 1rem;
+      justify-self: start;
     }
     > div:nth-child(2) {
+      grid-column: span 1;
+      grid-row: span 1;
       z-index: 1;
       rotate: -6.44deg;
       margin-top: -9rem;
       justify-self: end;
     }
     > div:nth-child(3) {
+      grid-column: span 1;
+      grid-row: span 1;
       rotate: 4.68deg;
       margin-top: -12rem;
       margin-left: 1rem;
+      justify-self: start;
     }
   }
 }
@@ -62,7 +100,21 @@
   }
 }
 
-.polaroid-with-badge:nth-child(3) {
+@include responsive-mobile-tablet {
+  .polaroid-with-badge:nth-child(3) {
+    position: relative;
+    width: fit-content;
+    > .badge {
+      width: 10rem;
+      position: absolute;
+      z-index: -1;
+      left: -4rem;
+      top: -4rem;
+      animation: rotation 5s linear infinite;
+    }
+  }
+}
+.polaroid-with-badge:nth-child(4) {
   position: relative;
   width: fit-content;
   > .badge {

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/ScrollInteraction.scss";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,22 +102,13 @@ export default function ScrollInteraction({ imageCategory }) {
         </p>
       </section>
       <section className="photos-gird">
-        {/* <picture>
-          <source />
-          <img src="" alt="" />
-        </picture>
-        <picture>
-          <source />
-          <img src="" alt="" />
-        </picture>
-        <picture>
-          <source />
-          <img src="" alt="" />
-        </picture> */}
+        <img src="" alt="" />
+        <img src="" alt="" />
+        <img src="" alt="" />
       </section>
-      <a
+      <Link
         aria-label={`${imageCategory} 사진 전체 보러가기`}
-        href="/photos/#"
+        to={`photos/#${imageCategory}`}
         className="view-all-link"
       >
         <p aria-hidden>사진 전체 보기</p>
@@ -124,7 +116,7 @@ export default function ScrollInteraction({ imageCategory }) {
           src="/icons/Arrow-right.svg"
           alt="오른쪽을 가리키는 화살표 모양 아이콘"
         />
-      </a>
+      </Link>
     </article>
   );
 }
