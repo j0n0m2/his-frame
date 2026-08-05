@@ -1,11 +1,17 @@
 import PolaroidFrame from "../components/PolaroidFrame";
 import ScrollInteraction from "../components/ScrollInteraction";
+import { useCategoryData } from "../hooks/useCategoryData";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 import "../styles/Home.scss";
 
 function Home() {
+  const { data, isLoading, error } = useCategoryData("home");
   const isDesktop = useIsDesktop();
 
+  if (isLoading) return <div>로딩 중...</div>;
+  if (error) return <div>에러 발생: {error}</div>;
+
+  const categoryList = Object.values(data);
   return (
     <main id="home-main">
       <section id="intro">
@@ -15,7 +21,7 @@ function Home() {
             alt="예수님은 당신을 사랑합니다 뱃지 이미지"
             className="badge"
           />
-          <PolaroidFrame categoryData="egypt" />
+          <PolaroidFrame categoryData={categoryList?.egypt} />
         </div>
         {isDesktop ? <PolaroidFrame categoryData="seoul" /> : null}
 

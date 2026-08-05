@@ -5,7 +5,6 @@ const IMAGE_API_BASE = "/api/images";
 /**
  * @param {"home" | "photos"} pageType
  */
-
 export function useCategoryData(pageType) {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -27,10 +26,17 @@ export function useCategoryData(pageType) {
 
         if (!isMounted) return;
 
-        if (pageType === "home") {
-          const formattedHomeData = rawData.reduce((acc, item) => {
-            const r2Keys = item.r2Keys || [];
+        // 💡 Array 여부 확인 방어 로직 추가
+        if (!Array.isArray(rawData)) {
+          throw new Error("API 응답이 배열 형식이 아닙니다.");
+        }
 
+        const formattedData = rawData.reduce((acc, item) => {
+          if (!item.category) return acc;
+
+          const r2Keys = item.r2Keys || [];
+
+          if (pageType === "home") {
             acc[item.category] = {
               category: item.category,
               title: item.title,
@@ -43,25 +49,17 @@ export function useCategoryData(pageType) {
                 .map((key) => `${IMAGE_API_BASE}/${key}`),
               r2Keys,
             };
-            return acc;
-          }, {});
-
-          setData(formattedHomeData);
-        } else if (pageType === "photos") {
-          // [Photos 전용]
-          const formattedPhotosData = rawData.reduce((acc, item) => {
-            const r2Keys = item.r2Keys || [];
-
+          } else if (pageType === "photos") {
             acc[item.category] = {
               category: item.category,
               imageUrls: r2Keys.map((key) => `${IMAGE_API_BASE}/${key}`),
             };
-            return acc;
-          }, {});
+          }
 
-          setData(formattedPhotosData);
-        }
+          return acc;
+        }, {});
 
+        setData(formattedData);
         setError(null);
       } catch (err) {
         if (isMounted) {
