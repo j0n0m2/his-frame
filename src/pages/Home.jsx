@@ -11,7 +11,7 @@ function Home() {
       setIsDesktop(window.innerWidth > 1037);
     };
 
-    handleResize(); // 초기 로드 시 체크
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -25,29 +25,29 @@ function Home() {
             alt="예수님은 당신을 사랑합니다 뱃지 이미지"
             className="badge"
           />
-          <PolaroidFrame imageCategory="egypt" />
+          <PolaroidFrame categoryData="egypt" />
         </div>
-        {isDesktop ? <PolaroidFrame imageCategory="seoul" /> : null}
+        {isDesktop ? <PolaroidFrame categoryData="seoul" /> : null}
 
-        <PolaroidFrame imageCategory="hawaii" />
+        <PolaroidFrame categoryData="hawaii" />
 
         <div className="polaroid-with-badge">
           <img
             src="/assets/MadeByGod.svg"
-            alt="예수님은 당신을 사랑합니다 뱃지 이미지"
+            alt="하나님이 만드심 뱃지 이미지"
             className="badge"
           />
-          <PolaroidFrame imageCategory="taiwan" />
+          <PolaroidFrame categoryData="taiwan" />
         </div>
-        {isDesktop ? <PolaroidFrame imageCategory="usa" /> : null}
+        {isDesktop ? <PolaroidFrame categoryData="usa" /> : null}
       </section>
 
       <section id="intro-gallery-section">
-        <ScrollInteraction imageCategory="egypt" />
-        <ScrollInteraction imageCategory="hawaii" />
-        {isDesktop ? <ScrollInteraction imageCategory="seoul" /> : null}
-        <ScrollInteraction imageCategory="taiwan" />
-        {isDesktop ? <ScrollInteraction imageCategory="usa" /> : null}
+        <ScrollInteraction categoryData={"egypt"} />
+        <ScrollInteraction categoryData="hawaii" />
+        {isDesktop ? <ScrollInteraction categoryData="seoul" /> : null}
+        <ScrollInteraction categoryData="taiwan" />
+        {isDesktop ? <ScrollInteraction categoryData="usa" /> : null}
       </section>
 
       <footer id="home-footer">

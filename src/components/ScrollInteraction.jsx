@@ -6,13 +6,14 @@ import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ScrollInteraction({ imageCategory }) {
+export default function ScrollInteraction({ categoryData }) {
   const sectionRef = useRef(null);
   const photoRef = useRef(null);
   const titleRef = useRef(null);
 
   useEffect(() => {
-    const mm = ScrollTrigger.matchMedia();
+    if (!sectionRef.current || !photoRef.current || !titleRef.current) return;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -22,23 +23,22 @@ export default function ScrollInteraction({ imageCategory }) {
         },
       });
 
-      // 사진
       tl.to(photoRef.current, {
         opacity: 1,
         scale: 1,
         duration: 1,
         ease: "power2.out",
-      })
-        // 텍스트
-        .to(
-          titleRef.current,
-          {
-            opacity: 1,
-            duration: 0.5,
-            ease: "power2.out",
-          },
-          "-=0.7"
-        );
+      }).to(
+        titleRef.current,
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "-=0.7"
+      );
+
+      const mm = gsap.matchMedia();
 
       mm.add("(min-width: 1024px)", () => {
         gsap.to(titleRef.current, {
@@ -78,37 +78,37 @@ export default function ScrollInteraction({ imageCategory }) {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [categoryData]);
 
   return (
-    <article className="intro-gallery-container" id={`intro-${imageCategory}`}>
+    <article className="intro-gallery-container" id={`intro-${categoryData}`}>
       <section ref={sectionRef} className="main-photo-section">
         <div ref={photoRef} className="photo-wrapper">
           <img
-            src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80"
-            alt="메인 예시 사진"
+            src={categoryData.mainImageUrl[1]}
+            alt={`${categoryData.category} 이미지`}
             className="main-photo"
           />
 
           <h2 ref={titleRef} className="section-title">
-            {imageCategory}
+            {categoryData.title}
           </h2>
         </div>
       </section>
       <section className="caption-section">
         <p>
-          {imageCategory.caption ||
+          {categoryData.caption ||
             "이집트는 태양신을 섬기던 문화가 깊게 남아있는 무슬림 국가입니다. 이집트 사람들은 순수하며 꾸준히 믿음을 지켜나가며 신실히 살아갑니다. 이들의 순수함과 신실함이 예수님을 만나길 간절히 기도합니다."}
         </p>
       </section>
       <section className="photos-gird">
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
+        {categoryData.subImageUrls.map((subImageUrl) => (
+          <img src={subImageUrl} alt={`${categoryData.category} 이미지`} />
+        ))}
       </section>
       <Link
-        aria-label={`${imageCategory} 사진 전체 보러가기`}
-        to={`photos/#${imageCategory}`}
+        aria-label={`${categoryData.category} 사진 전체 보러가기`}
+        to={`photos/#${categoryData.category}`}
         className="view-all-link"
       >
         <p aria-hidden>사진 전체 보기</p>

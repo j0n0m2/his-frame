@@ -1,23 +1,22 @@
 import "../styles/PolaroidFrame.scss";
 
-function PolaroidFrame({ imageCategory, imageUrl }) {
+function PolaroidFrame({ categoryData }) {
   return (
     <div className="polaroid-frame">
-      <picture className="polaroid-image-wrapper">
-        <source srcSet={`${imageUrl}.webp`} type="image/webp" />
+      <div className="polaroid-image-wrapper">
         <img
-          src={imageUrl}
-          alt={`${imageCategory} 미리보기 사진`}
+          src={categoryData.mainImageUrl[0]}
+          alt={`${categoryData.category} 미리보기 사진`}
           className="polaroid-image"
         />
-      </picture>
+      </div>
 
       <a
-        aria-label={`${imageCategory} 사진 보러가기`}
-        href={`#intro-${imageCategory}`}
+        aria-label={`${categoryData.category} 사진 보러가기`}
+        href={`#intro-${categoryData.category}`}
         className="polaroid-caption"
       >
-        <p aria-hidden="true">{imageCategory}</p>
+        <p aria-hidden="true">{categoryData.title}</p>
         <img
           src="/icons/Arrow-right.svg"
           alt="오른쪽을 가리키는 화살표 모양 아이콘 "

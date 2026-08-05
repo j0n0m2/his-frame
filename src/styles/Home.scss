@@ -87,7 +87,6 @@
     }
   }
 }
-
 .polaroid-with-badge {
   position: relative;
   width: fit-content;
@@ -99,7 +98,6 @@
     rotate: 32deg;
   }
 }
-
 @include responsive-mobile-tablet {
   .polaroid-with-badge:nth-child(3) {
     position: relative;
@@ -126,6 +124,7 @@
     animation: rotation 5s linear infinite;
   }
 }
+
 #intro-gallery-section {
   display: flex;
   flex-direction: column;
