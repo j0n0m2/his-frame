@@ -128,18 +128,15 @@
 #intro-gallery-section {
   display: flex;
   flex-direction: column;
-  gap: 10.6rem;
+  gap: 12rem;
 }
 
 #home-footer {
-  min-height: 23rem;
+  padding: 3.4rem 0;
   display: flex;
-  align-items: center;
   > a {
     display: flex;
     flex-direction: column;
-    height: fit-content;
-    justify-content: center;
     gap: 0.6rem;
     font-size: 1.8rem;
 
