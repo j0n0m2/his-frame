@@ -3,10 +3,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/ScrollInteraction.scss";
 import { Link } from "react-router-dom";
+import { useIsDesktop } from "../hooks/useIsDesktop";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollInteraction({ categoryData }) {
+  const isDesktop = useIsDesktop();
   const sectionRef = useRef(null);
   const photoRef = useRef(null);
   const titleRef = useRef(null);
@@ -40,15 +42,16 @@ export default function ScrollInteraction({ categoryData }) {
 
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 1024px)", () => {
+      mm.add("(min-width: 1023px)", () => {
         gsap.to(titleRef.current, {
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: sectionRef.current.parentElement,
             start: "top 10%",
             end: "bottom top",
             scrub: 1,
           },
-          y: 400,
+          y: 2000,
+          ease: "none",
         });
       });
 
@@ -56,11 +59,12 @@ export default function ScrollInteraction({ categoryData }) {
         gsap.to(titleRef.current, {
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 0%",
+            start: "top 10%",
             end: "bottom top",
             scrub: 1,
           },
-          y: 240,
+          y: 340,
+          ease: "none",
         });
       });
 
@@ -72,13 +76,14 @@ export default function ScrollInteraction({ categoryData }) {
             end: "bottom top",
             scrub: 1,
           },
-          y: 200,
+          y: 300,
+          ease: "none",
         });
       });
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [categoryData]);
+  }, [categoryData, isDesktop]);
 
   return (
     <article className="intro-gallery-container" id={`intro-${categoryData}`}>
@@ -90,7 +95,6 @@ export default function ScrollInteraction({ categoryData }) {
             alt={`${categoryData.category} 이미지`}
             className="main-photo"
           />
-
           <h2 ref={titleRef} className="section-title">
             {/* {categoryData.title} */}
             Egypt

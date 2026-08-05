@@ -128,7 +128,10 @@
 #intro-gallery-section {
   display: flex;
   flex-direction: column;
-  gap: 12rem;
+  gap: 30rem;
+  @include responsive-mobile-tablet {
+    gap: 12rem;
+  }
 }
 
 #home-footer {

@@ -6,7 +6,7 @@ const IMAGE_API_BASE = "/api/images";
  * @param {"home" | "photos"} pageType
  */
 
-export function useGalleryData(pageType) {
+export function useCategoryData(pageType) {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

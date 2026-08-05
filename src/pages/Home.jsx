@@ -1,20 +1,10 @@
-import { useState, useEffect } from "react";
 import PolaroidFrame from "../components/PolaroidFrame";
 import ScrollInteraction from "../components/ScrollInteraction";
+import { useIsDesktop } from "../hooks/useIsDesktop";
 import "../styles/Home.scss";
 
 function Home() {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth > 1037);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const isDesktop = useIsDesktop();
 
   return (
     <main id="home-main">
