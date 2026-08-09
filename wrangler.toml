@@ -1,7 +1,0 @@
-name = "his-frame"
-pages_build_output_dir = "dist"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "his-frame"
-database_id = "da07bf21-3b35-4486-858c-a25ab6820125"
