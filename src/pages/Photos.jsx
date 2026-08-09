@@ -3,41 +3,31 @@ import { useCategoryData } from "../hooks/useCategoryData";
 import "../styles/Photos.scss";
 
 function Photos() {
-  const { data, isLoading } = useCategoryData("photos");
+  const { data, isLoading } = useCategoryData();
 
   if (isLoading) return <div>로딩 중...</div>;
 
   return (
     <article className="photos-container">
-      {data.egypt && (
-        <CategoryItem
-          category={data.egypt.category}
-          imageUrls={data.egypt.imageUrls}
-        />
-      )}
-
-      {/* {data.turkey && (
-        <CategoryItem
-          category={data.turkey.category}
-          imageUrls={data.turkey.imageUrls}
-        />
-      )} */}
-
       <CategoryItem
-        category={data.turkey?.category}
-        imageUrls={data.turkey?.imageUrls}
+        category={data.egypt.category}
+        imageUrls={data.egypt.imageUrls}
       />
       <CategoryItem
-        category={data.turkey?.category}
-        imageUrls={data.turkey?.imageUrls}
+        category={data.hawaii.category}
+        imageUrls={data.hawaii.imageUrls}
       />
       <CategoryItem
-        category={data.turkey?.category}
-        imageUrls={data.turkey?.imageUrls}
+        category={data.taiwan.category}
+        imageUrls={data.taiwan.imageUrls}
       />
       <CategoryItem
-        category={data.turkey?.category}
-        imageUrls={data.turkey?.imageUrls}
+        category={data.japan.category}
+        imageUrls={data.japan.imageUrls}
+      />
+      <CategoryItem
+        category={data.usa.category}
+        imageUrls={data.usa.imageUrls}
       />
     </article>
   );

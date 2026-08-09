@@ -5,7 +5,7 @@ import { useIsDesktop } from "../hooks/useIsDesktop";
 import "../styles/Home.scss";
 
 function Home() {
-  const { data, isLoading, error } = useCategoryData("home");
+  const { data, isLoading, error } = useCategoryData();
   const isDesktop = useIsDesktop();
 
   if (isLoading) return <div>로딩 중...</div>;
@@ -23,9 +23,11 @@ function Home() {
           />
           <PolaroidFrame categoryData={categoryList?.egypt} />
         </div>
-        {isDesktop ? <PolaroidFrame categoryData="seoul" /> : null}
+        {isDesktop ? (
+          <PolaroidFrame categoryData={categoryList?.japan} />
+        ) : null}
 
-        <PolaroidFrame categoryData="hawaii" />
+        <PolaroidFrame categoryData={categoryList?.hawaii} />
 
         <div className="polaroid-with-badge">
           <img
@@ -33,17 +35,19 @@ function Home() {
             alt="하나님이 만드심 뱃지 이미지"
             className="badge"
           />
-          <PolaroidFrame categoryData="taiwan" />
+          <PolaroidFrame categoryData={categoryList?.taiwan} />
         </div>
-        {isDesktop ? <PolaroidFrame categoryData="usa" /> : null}
+        {isDesktop ? <PolaroidFrame categoryData={categoryList?.usa} /> : null}
       </section>
 
       <section id="intro-gallery-section">
         <ScrollInteraction categoryData="egypt" />
-        <ScrollInteraction categoryData="hawaii" />
-        {isDesktop ? <ScrollInteraction categoryData="seoul" /> : null}
-        <ScrollInteraction categoryData="taiwan" />
-        {isDesktop ? <ScrollInteraction categoryData="usa" /> : null}
+        <ScrollInteraction categoryData={categoryList?.hawaii} />
+        {isDesktop ? <ScrollInteraction categoryData={categoryList?.japan} /> : null}
+        <ScrollInteraction categoryData={categoryList?.taiwan} />
+        {isDesktop ? (
+          <ScrollInteraction categoryData={categoryList?.usa} />
+        ) : null}
       </section>
 
       <footer id="home-footer">
