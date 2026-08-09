@@ -26,7 +26,7 @@ export function useCategoryData() {
             category: item.category,
             title: item.title,
             caption: item.caption,
-            mainImageUrls: allUrls[0],
+            mainImageUrl: allUrls[0],
             subImageUrls: allUrls.slice(1, 4),
             imageUrls: allUrls,
           };

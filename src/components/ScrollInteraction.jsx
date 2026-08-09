@@ -86,9 +86,12 @@ export default function ScrollInteraction({ categoryData }) {
   }, [categoryData, isDesktop]);
 
   if (!categoryData) return null;
-  
+
   return (
-    <article className="intro-gallery-container" id={`intro-${categoryData}`}>
+    <article
+      className="intro-gallery-container"
+      id={`intro-${categoryData.category}`}
+    >
       <section ref={sectionRef} className="main-photo-section">
         <div ref={photoRef} className="photo-wrapper">
           <img
@@ -102,10 +105,7 @@ export default function ScrollInteraction({ categoryData }) {
         </div>
       </section>
       <section className="caption-photos-gird">
-        <p>
-          {categoryData.caption ||
-            "이집트는 태양신을 섬기던 문화가 깊게 남아있는 무슬림 국가입니다. 이집트 사람들은 순수하며 꾸준히 믿음을 지켜나가며 신실히 살아갑니다. 이들의 순수함과 신실함이 예수님을 만나길 간절히 기도합니다."}
-        </p>
+        <p>{categoryData.caption}</p>
         {categoryData.subImageUrls?.map((subImageUrl) => (
           <img src={subImageUrl} alt={`${categoryData.category} 이미지`} />
         ))}

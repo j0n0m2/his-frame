@@ -38,7 +38,6 @@ function Home() {
       </section>
 
       <section id="intro-gallery-section">
-        <ScrollInteraction categoryData="egypt" />
         <ScrollInteraction categoryData={data?.hawaii} />
         {isDesktop ? <ScrollInteraction categoryData={data?.japan} /> : null}
         <ScrollInteraction categoryData={data?.taiwan} />
