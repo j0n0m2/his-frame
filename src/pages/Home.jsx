@@ -10,9 +10,9 @@ function Home() {
 
   if (isLoading) return <div>로딩 중...</div>;
   if (error) return <div>에러 발생: {error}</div>;
-  console.log(data);
 
   const categoryList = Object.values(data);
+  console.log(categoryList);
   return (
     <main id="home-main">
       <section id="intro">
