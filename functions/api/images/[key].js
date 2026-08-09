@@ -1,11 +1,24 @@
 export async function onRequestGet(context) {
-  const { key } = context.params;
+  const { env, params } = context;
 
-  const object = await context.env.HIS_FRAME_BUCKET.get(key);
+  const key = Array.isArray(params.path) ? params.path.join("/") : params.path;
 
-  if (!object) {
-    return new Response("Image Not Found", { status: 404 });
+  if (!key) {
+    return new Response("이미지 경로가 지정되지 않았습니다.", { status: 400 });
   }
 
-  return new Response(object.body);
+  const object = await env.HIS_FRAME_BUCKET.get(key);
+
+  if (!object) {
+    return new Response(`이미지를 찾을 수 없습니다: ${key}`, { status: 404 });
+  }
+
+  const headers = new Headers();
+  object.writeHttpMetadata(headers);
+  headers.set("etag", object.httpEtag);
+  headers.set("cache-control", "public, max-age=31536000");
+
+  return new Response(object.body, {
+    headers,
+  });
 }
