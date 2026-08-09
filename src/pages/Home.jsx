@@ -10,6 +10,7 @@ function Home() {
 
   if (isLoading) return <div>로딩 중...</div>;
   if (error) return <div>에러 발생: {error}</div>;
+  console.log(data);
 
   const categoryList = Object.values(data);
   return (
@@ -43,7 +44,9 @@ function Home() {
       <section id="intro-gallery-section">
         <ScrollInteraction categoryData="egypt" />
         <ScrollInteraction categoryData={categoryList?.hawaii} />
-        {isDesktop ? <ScrollInteraction categoryData={categoryList?.japan} /> : null}
+        {isDesktop ? (
+          <ScrollInteraction categoryData={categoryList?.japan} />
+        ) : null}
         <ScrollInteraction categoryData={categoryList?.taiwan} />
         {isDesktop ? (
           <ScrollInteraction categoryData={categoryList?.usa} />
