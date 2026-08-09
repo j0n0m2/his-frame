@@ -2,11 +2,12 @@ import "../styles/PolaroidFrame.scss";
 
 function PolaroidFrame({ categoryData }) {
   if (!categoryData) return null;
+
   return (
     <div className="polaroid-frame">
       <div className="polaroid-image-wrapper">
         <img
-          src={categoryData.mainImageUrl?.[0]}
+          src={categoryData.mainImageUrl}
           alt={`${categoryData.category} 미리보기 사진`}
           className="polaroid-image"
         />

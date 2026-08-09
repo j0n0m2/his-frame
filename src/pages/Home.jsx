@@ -11,8 +11,6 @@ function Home() {
   if (isLoading) return <div>로딩 중...</div>;
   if (error) return <div>에러 발생: {error}</div>;
 
-  const categoryList = Object.values(data);
-
   return (
     <main id="home-main">
       <section id="intro">
@@ -22,13 +20,11 @@ function Home() {
             alt="예수님은 당신을 사랑합니다 뱃지 이미지"
             className="badge"
           />
-          <PolaroidFrame categoryData={categoryList?.egypt} />
+          <PolaroidFrame categoryData={data?.egypt} />
         </div>
-        {isDesktop ? (
-          <PolaroidFrame categoryData={categoryList?.japan} />
-        ) : null}
+        {isDesktop ? <PolaroidFrame categoryData={data?.japan} /> : null}
 
-        <PolaroidFrame categoryData={categoryList?.hawaii} />
+        <PolaroidFrame categoryData={data?.hawaii} />
 
         <div className="polaroid-with-badge">
           <img
@@ -36,21 +32,17 @@ function Home() {
             alt="하나님이 만드심 뱃지 이미지"
             className="badge"
           />
-          <PolaroidFrame categoryData={categoryList?.taiwan} />
+          <PolaroidFrame categoryData={data?.taiwan} />
         </div>
-        {isDesktop ? <PolaroidFrame categoryData={categoryList?.usa} /> : null}
+        {isDesktop ? <PolaroidFrame categoryData={data?.usa} /> : null}
       </section>
 
       <section id="intro-gallery-section">
         <ScrollInteraction categoryData="egypt" />
-        <ScrollInteraction categoryData={categoryList?.hawaii} />
-        {isDesktop ? (
-          <ScrollInteraction categoryData={categoryList?.japan} />
-        ) : null}
-        <ScrollInteraction categoryData={categoryList?.taiwan} />
-        {isDesktop ? (
-          <ScrollInteraction categoryData={categoryList?.usa} />
-        ) : null}
+        <ScrollInteraction categoryData={data?.hawaii} />
+        {isDesktop ? <ScrollInteraction categoryData={data?.japan} /> : null}
+        <ScrollInteraction categoryData={data?.taiwan} />
+        {isDesktop ? <ScrollInteraction categoryData={data?.usa} /> : null}
       </section>
 
       <footer id="home-footer">
