@@ -85,19 +85,19 @@ export default function ScrollInteraction({ categoryData }) {
     return () => ctx.revert();
   }, [categoryData, isDesktop]);
 
+  if (!categoryData) return null;
+  
   return (
     <article className="intro-gallery-container" id={`intro-${categoryData}`}>
       <section ref={sectionRef} className="main-photo-section">
         <div ref={photoRef} className="photo-wrapper">
           <img
-            // src={categoryData.mainImageUrl?.[1]}
-            src="https://i.pinimg.com/736x/ed/47/dd/ed47dd22c47ca6871b92136b0acdc1c3.jpg"
+            src={categoryData.mainImageUrl}
             alt={`${categoryData.category} 이미지`}
             className="main-photo"
           />
           <h2 ref={titleRef} className="section-title">
-            {/* {categoryData.title} */}
-            Egypt
+            {categoryData.title}
           </h2>
         </div>
       </section>
@@ -106,13 +106,9 @@ export default function ScrollInteraction({ categoryData }) {
           {categoryData.caption ||
             "이집트는 태양신을 섬기던 문화가 깊게 남아있는 무슬림 국가입니다. 이집트 사람들은 순수하며 꾸준히 믿음을 지켜나가며 신실히 살아갑니다. 이들의 순수함과 신실함이 예수님을 만나길 간절히 기도합니다."}
         </p>
-        {/* {categoryData.subImageUrls?.map((subImageUrl) => (
+        {categoryData.subImageUrls?.map((subImageUrl) => (
           <img src={subImageUrl} alt={`${categoryData.category} 이미지`} />
-        ))} */}
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
-        {/* 지워야함 */}
+        ))}
       </section>
       <Link
         aria-label={`${categoryData.category} 사진 전체 보러가기`}

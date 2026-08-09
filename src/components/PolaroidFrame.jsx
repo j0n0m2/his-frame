@@ -1,6 +1,7 @@
 import "../styles/PolaroidFrame.scss";
 
 function PolaroidFrame({ categoryData }) {
+  if (!categoryData) return null;
   return (
     <div className="polaroid-frame">
       <div className="polaroid-image-wrapper">
