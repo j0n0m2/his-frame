@@ -16,7 +16,7 @@ function PolaroidFrame({ categoryData }) {
       <a
         aria-label={`${categoryData.category} 사진 보러가기`}
         href={`#intro-${categoryData.category}`}
-        className="polaroid-caption"
+        className="polaroid-caption title-font"
       >
         <p aria-hidden="true">{categoryData.title}</p>
         <img
