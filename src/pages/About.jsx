@@ -2,7 +2,11 @@ function About() {
   return (
     <div>
       <h1>About</h1>
-      <img src="/assets/his_frame_profile.webp" alt="작가사진" />
+      <img
+        src="/assets/his_frame_profile.webp"
+        alt="작가사진"
+        style={{ width: "250px" }}
+      />
       <p>
         하나님께서 지으신 것들이 가장 아름답게 빛나는 순간들을 담아내고자
         합니다.
