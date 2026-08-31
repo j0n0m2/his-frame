@@ -5,19 +5,19 @@ function PolaroidFrame({ categoryData }) {
 
   return (
     <div className="polaroid-frame">
-      <div className="polaroid-image-wrapper">
-        <img
-          src={categoryData.mainImageUrl}
-          alt={`${categoryData.category} 미리보기 사진`}
-          className="polaroid-image"
-        />
-      </div>
-
       <a
         aria-label={`${categoryData.category} 사진 보러가기`}
         href={`#intro-${categoryData.category}`}
         className="polaroid-caption title-font"
       >
+        <div className="polaroid-image-wrapper">
+          <img
+            src={categoryData.mainImageUrl}
+            alt={`${categoryData.category} 미리보기 사진`}
+            className="polaroid-image"
+          />
+        </div>
+
         <p aria-hidden="true">{categoryData.title}</p>
         <img
           src="/icons/Arrow-right.svg"
