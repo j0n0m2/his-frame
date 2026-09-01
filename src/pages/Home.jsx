@@ -22,7 +22,7 @@ function Home() {
           />
           <PolaroidFrame categoryData={data?.egypt} />
         </div>
-        {isDesktop ? <PolaroidFrame categoryData={data?.japan} /> : null}
+        {isDesktop ? <PolaroidFrame categoryData={data?.seoul} /> : null}
 
         <PolaroidFrame categoryData={data?.hawaii} />
 
@@ -40,7 +40,7 @@ function Home() {
       <section id="intro-gallery-section">
         <ScrollInteraction categoryData={data?.egypt} />
         <ScrollInteraction categoryData={data?.hawaii} />
-        {isDesktop ? <ScrollInteraction categoryData={data?.japan} /> : null}
+        {isDesktop ? <ScrollInteraction categoryData={data?.seoul} /> : null}
         <ScrollInteraction categoryData={data?.taiwan} />
         {isDesktop ? <ScrollInteraction categoryData={data?.usa} /> : null}
       </section>

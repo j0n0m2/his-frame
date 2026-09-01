@@ -22,8 +22,8 @@ function Photos() {
         imageUrls={data.taiwan.imageUrls}
       />
       <CategoryItem
-        category={data.japan.category}
-        imageUrls={data.japan.imageUrls}
+        category={data.seoul.category}
+        imageUrls={data.seoul.imageUrls}
       />
       <CategoryItem
         category={data.usa.category}
